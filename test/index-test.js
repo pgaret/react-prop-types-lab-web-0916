@@ -49,7 +49,7 @@ describe('<Product />', () => {
   describe('`name` prop', function () {
     it('should be required', function () {
       shallow(<Product {...ALL_PROPS_VALID} name={undefined} />);
-      expect(isRequiredPropTypeError(spy, 'name')).toBeTruthy(ERRORS.PROP_IS_REQUIRED);
+      expect(spy.called).toBeTruthy('The `name` prop validator does not validate the value as being required.');
     });
 
     it('should have the right propType', function () {
@@ -95,7 +95,7 @@ describe('<Product />', () => {
   describe('`color` prop', function () {
     it('should be required', function () {
       shallow(<Product {...ALL_PROPS_VALID} color={undefined} />);
-      expect(isRequiredPropTypeError(spy, 'color')).toBeTruthy(ERRORS.PROP_IS_REQUIRED);
+      expect(spy.called).toBeTruthy('The `color` prop validator does not validate the value as being required.');
     });
 
     it('should only allow the right values', function () {
